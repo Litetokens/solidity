@@ -398,7 +398,7 @@ Modifiers
 
 - ``pure`` for functions: Disallows modification or access of state - this is not enforced yet.
 - ``view`` for functions: Disallows modification of state - this is not enforced yet.
-- ``payable`` for functions: Allows them to receive Trx together with a call.
+- ``payable`` for functions: Allows them to receive Xlt together with a call.
 - ``constant`` for state variables: Disallows assignment (except initialisation), does not occupy storage slot.
 - ``constant`` for functions: Same as ``view``.
 - ``anonymous`` for events: Does not store event signature as topic.

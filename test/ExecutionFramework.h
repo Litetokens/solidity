@@ -43,7 +43,7 @@ namespace test
 
 	// The various denominations; here for ease of use where needed within code.
 	static const u256 sun = 1;
-	static const u256 trx = sun * 1000000;
+	static const u256 xlt = sun * 1000000;
 
 class ExecutionFramework
 {

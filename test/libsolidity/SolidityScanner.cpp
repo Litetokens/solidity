@@ -290,9 +290,9 @@ BOOST_AUTO_TEST_CASE(comments_mixed_in_sequence)
 
 BOOST_AUTO_TEST_CASE(ether_subdenominations)
 {
-	Scanner scanner(CharStream("sun trx"));
+	Scanner scanner(CharStream("sun xlt"));
 	BOOST_CHECK_EQUAL(scanner.currentToken(), Token::SubSun);
-	BOOST_CHECK_EQUAL(scanner.next(), Token::SubTrx);
+	BOOST_CHECK_EQUAL(scanner.next(), Token::SubXlt);
 }
 
 BOOST_AUTO_TEST_CASE(time_subdenominations)

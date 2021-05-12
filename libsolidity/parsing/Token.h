@@ -180,9 +180,9 @@ namespace solidity
 	K(View, "view", 0)                                                 \
 	K(While, "while", 0)                                               \
 	\
-	/* Trx subdenominations */                                       \
+	/* Xlt subdenominations */                                       \
 	K(SubSun, "sun", 0)                                              \
-	K(SubTrx, "trx", 0)                                                \
+	K(SubXlt, "xlt", 0)                                                \
 	K(SubSecond, "seconds", 0)                                         \
 	K(SubMinute, "minutes", 0)                                         \
 	K(SubHour, "hours", 0)                                             \
@@ -289,7 +289,7 @@ public:
 	static bool isVariableVisibilitySpecifier(Value op) { return op == Public || op == Private || op == Internal; }
 	static bool isLocationSpecifier(Value op) { return op == Memory || op == Storage; }
 	static bool isStateMutabilitySpecifier(Value op) { return op == Pure || op == Constant || op == View || op == Payable; }
-	static bool isEtherSubdenomination(Value op) { return op == SubSun || op == SubTrx; }
+	static bool isEtherSubdenomination(Value op) { return op == SubSun || op == SubXlt; }
 	static bool isTimeSubdenomination(Value op) { return op == SubSecond || op == SubMinute || op == SubHour || op == SubDay || op == SubWeek || op == SubYear; }
 	static bool isReservedKeyword(Value op) { return (Abstract <= op && op <= TypeOf); }
 
@@ -346,7 +346,7 @@ public:
 	unsigned int secondNumber() const { return m_secondNumber; }
 	Token::Value token() const { return m_token; }
 	///if tokValue is set to true, then returns the actual token type name, otherwise, returns full type
-	std::string toString(bool const& tokenValue = false) const 
+	std::string toString(bool const& tokenValue = false) const
 	{
 		std::string name = Token::toString(m_token);
 		if (tokenValue || (firstNumber() == 0 && secondNumber() == 0))

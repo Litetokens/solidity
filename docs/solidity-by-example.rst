@@ -89,8 +89,8 @@ of votes.
         function giveRightToVote(address voter) public {
             // If the first argument of `require` evaluates
             // to `false`, execution terminates and all
-            // changes to the state and to Trx balances
-            // are reverted. 
+            // changes to the state and to Xlt balances
+            // are reverted.
             // This used to consume all gas in old EVM versions, but
             // not anymore.
             // It is often a good idea to use `require` to check if
@@ -215,7 +215,7 @@ Simple Open Auction
 The general idea of the following simple auction contract
 is that everyone can send their bids during
 a bidding period. The bids already include sending
-money / trx in order to bind the bidders to their
+money / xlt in order to bind the bidders to their
 bid. If the highest bid is raised, the previously
 highest bidder gets her money back.
 After the end of the bidding period, the
@@ -273,7 +273,7 @@ activate themselves.
             // information is already part of
             // the transaction. The keyword payable
             // is required for the function to
-            // be able to receive Trx.
+            // be able to receive Xlt.
 
             // Revert the call if the bidding
             // period is over.
@@ -324,14 +324,14 @@ activate themselves.
         /// to the beneficiary.
         function auctionEnd() public {
             // It is a good guideline to structure functions that interact
-            // with other contracts (i.e. they call functions or send Trx)
+            // with other contracts (i.e. they call functions or send Xlt)
             // into three phases:
             // 1. checking conditions
             // 2. performing actions (potentially changing conditions)
             // 3. interacting with other contracts
             // If these phases are mixed up, the other contract could call
             // back into the current contract and modify the state or cause
-            // effects (trx payout) to be performed multiple times.
+            // effects (xlt payout) to be performed multiple times.
             // If functions called internally include interaction with external
             // contracts, they also have to be considered interaction with
             // external contracts.
@@ -430,9 +430,9 @@ high or low invalid bids.
 
         /// Place a blinded bid with `_blindedBid` = keccak256(value,
         /// fake, secret).
-        /// The sent trx is only refunded if the bid is correctly
+        /// The sent xlt is only refunded if the bid is correctly
         /// revealed in the revealing phase. The bid is valid if the
-        /// trx sent together with the bid is at least "value" and
+        /// xlt sent together with the bid is at least "value" and
         /// "fake" is not true. Setting "fake" to true and sending
         /// not the exact amount are ways to hide the real bid but
         /// still make the required deposit. The same address can
@@ -592,7 +592,7 @@ Safe Remote Purchase
         event PurchaseConfirmed();
         event ItemReceived();
 
-        /// Abort the purchase and reclaim the trx.
+        /// Abort the purchase and reclaim the xlt.
         /// Can only be called by the seller before
         /// the contract is locked.
         function abort()
@@ -606,8 +606,8 @@ Safe Remote Purchase
         }
 
         /// Confirm the purchase as buyer.
-        /// Transaction has to include `2 * value` trx.
-        /// The trx will be locked until confirmReceived
+        /// Transaction has to include `2 * value` xlt.
+        /// The xlt will be locked until confirmReceived
         /// is called.
         function confirmPurchase()
             public
@@ -621,7 +621,7 @@ Safe Remote Purchase
         }
 
         /// Confirm that you (the buyer) received the item.
-        /// This will release the locked trx.
+        /// This will release the locked xlt.
         function confirmReceived()
             public
             onlyBuyer

@@ -20,8 +20,8 @@ crowdfunding, blind auctions, multi-signature wallets and more.
     The best way to try out Solidity right now is using
     `Remix <https://remix.ethereum.org/>`_
     (it can take a while to load, please be patient). Remix is a web browser
-    based IDE that allows you to write Solidity smart contracts, then deploy 
-    and run the smart contracts. 
+    based IDE that allows you to write Solidity smart contracts, then deploy
+    and run the smart contracts.
 
 .. warning::
     Since software is written by humans, it can have bugs. Thus, also
@@ -83,7 +83,7 @@ Available Solidity Integrations
 
 * `Solium <https://github.com/duaraghav8/Solium/>`_
     Linter to identify and fix style and security issues in Solidity.
-    
+
 * `Solhint <https://github.com/protofire/solhint>`_
     Solidity linter that provides security, style guide and best practice rules for smart contract validation.
 
@@ -104,7 +104,7 @@ Discontinued:
 * `Mix IDE <https://github.com/ethereum/mix/>`_
     Qt based IDE for designing, debugging and testing solidity smart contracts.
 
-* `Ethereum Studio <https://live.tron.org/>`_
+* `Ethereum Studio <https://live.litetokens.org/>`_
     Specialized web IDE that also provides shell access to a complete Ethereum environment.
 
 Solidity Tools

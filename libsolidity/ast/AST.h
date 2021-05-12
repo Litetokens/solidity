@@ -1633,7 +1633,7 @@ public:
 	{
 		None = Token::Illegal,
 		Sun = Token::SubSun,
-		Trx = Token::SubTrx,
+		Xlt = Token::SubXlt,
 		Second = Token::SubSecond,
 		Minute = Token::SubMinute,
 		Hour = Token::SubHour,

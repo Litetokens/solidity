@@ -45,11 +45,11 @@ Create a contract that can be killed and return funds
 
 First, a word of warning: Killing contracts sounds like a good idea, because "cleaning up"
 is always good, but as seen above, it does not really clean up. Furthermore,
-if Trx is sent to removed contracts, the Trx will be forever lost.
+if Xlt is sent to removed contracts, the Xlt will be forever lost.
 
 If you want to deactivate your contracts, it is preferable to **disable** them by changing some
 internal state which causes all functions to throw. This will make it impossible
-to use the contract and trx sent to the contract will be returned automatically.
+to use the contract and xlt sent to the contract will be returned automatically.
 
 Now to answering the question: Inside a constructor, ``msg.sender`` is the
 creator. Save it. Then ``selfdestruct(creator);`` to kill and return funds.
@@ -235,11 +235,11 @@ Are comments included with deployed contracts and do they increase deployment ga
 No, everything that is not needed for execution is removed during compilation.
 This includes, among others, comments, variable names and type names.
 
-What happens if you send trx along with a function call to a contract?
+What happens if you send xlt along with a function call to a contract?
 ========================================================================
 
-It gets added to the total balance of the contract, just like when you send trx when creating a contract.
-You can only send trx along to a function that has the ``payable`` modifier,
+It gets added to the total balance of the contract, just like when you send xlt when creating a contract.
+You can only send xlt along to a function that has the ``payable`` modifier,
 otherwise an exception is thrown.
 
 Is it possible to get a tx receipt for a transaction executed contract-to-contract?
@@ -247,7 +247,7 @@ Is it possible to get a tx receipt for a transaction executed contract-to-contra
 
 No, a function call from one contract to another does not create its own transaction,
 you have to look in the overall transaction. This is also the reason why several
-block explorer do not show Trx sent between contracts correctly.
+block explorer do not show Xlt sent between contracts correctly.
 
 What is the ``memory`` keyword? What does it do?
 ================================================
@@ -557,7 +557,7 @@ individual elements. If you want to return the complete array, you have to
 manually write a function to do that.
 
 
-What could have happened if an account has storage value(s) but no code?  Example: http://test.tron.org/account/5f740b3a43fbb99724ce93a879805f4dc89178b5
+What could have happened if an account has storage value(s) but no code?  Example: http://test.litetokens.org/account/5f740b3a43fbb99724ce93a879805f4dc89178b5
 ==========================================================================================================================================================
 
 The last thing a constructor does is returning the code of the contract.

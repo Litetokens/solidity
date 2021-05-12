@@ -264,7 +264,7 @@ BOOST_AUTO_TEST_CASE(int_with_ether_ether_subdenomination)
 	char const* sourceCode = R"(
 		contract test {
 			function test () {
-				 var x = 1 trx;
+				 var x = 1 xlt;
 			}
 		}
 	)";
@@ -511,9 +511,9 @@ BOOST_AUTO_TEST_CASE(blockhash)
 		}
 	)";
 
-	auto blockhashFun = make_shared<FunctionType>(strings{"uint256"}, strings{"bytes32"}, 
+	auto blockhashFun = make_shared<FunctionType>(strings{"uint256"}, strings{"bytes32"},
 		FunctionType::Kind::BlockHash, false, StateMutability::View);
-	
+
 	bytes code = compileFirstExpression(sourceCode, {}, {}, {make_shared<MagicVariableDeclaration>("blockhash", blockhashFun)});
 
 	bytes expectation({byte(Instruction::PUSH1), 0x03,

@@ -792,7 +792,7 @@ BOOST_AUTO_TEST_CASE(literal_constants_with_ether_subdenominations)
 			function c ()
 			{
 				 a = 1 sun;
-				 b = 2 trx;
+				 b = 2 xlt;
 			}
 			uint256 a;
 			uint256 b;
@@ -806,7 +806,7 @@ BOOST_AUTO_TEST_CASE(literal_constants_with_ether_subdenominations_in_expression
 		contract c {
 			function c ()
 			{
-				 a = 1 sun * 100 sun + 7 trx - 3;
+				 a = 1 sun * 100 sun + 7 xlt - 3;
 			}
 			uint256 a;
 		})";

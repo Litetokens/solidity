@@ -120,7 +120,7 @@ Members of Addresses
 For a quick reference, see :ref:`address_related`.
 
 It is possible to query the balance of an address using the property ``balance``
-and to send Trx (in units of sun) to an address using the ``transfer`` function:
+and to send Xlt (in units of sun) to an address using the ``transfer`` function:
 
 ::
 
@@ -129,7 +129,7 @@ and to send Trx (in units of sun) to an address using the ``transfer`` function:
     if (x.balance < 10 && myAddress.balance >= 10) x.transfer(10);
 
 .. note::
-    If ``x`` is a contract address, its code (more specifically: its fallback function, if present) will be executed together with the ``transfer`` call (this is a feature of the EVM and cannot be prevented). If that execution runs out of gas or fails in any way, the Trx transfer will be reverted and the current contract will stop with an exception.
+    If ``x`` is a contract address, its code (more specifically: its fallback function, if present) will be executed together with the ``transfer`` call (this is a feature of the EVM and cannot be prevented). If that execution runs out of gas or fails in any way, the Xlt transfer will be reverted and the current contract will stop with an exception.
 
 * ``send``
 
@@ -138,7 +138,7 @@ Send is the low-level counterpart of ``transfer``. If the execution fails, the c
 .. warning::
     There are some dangers in using ``send``: The transfer fails if the call stack depth is at 1024
     (this can always be forced by the caller) and it also fails if the recipient runs out of gas. So in order
-    to make safe Trx transfers, always check the return value of ``send``, use ``transfer`` or even better:
+    to make safe Xlt transfers, always check the return value of ``send``, use ``transfer`` or even better:
     use a pattern where the recipient withdraws the money.
 
 * ``call``, ``callcode`` and ``delegatecall``
@@ -158,13 +158,13 @@ It is possible to adjust the supplied gas with the ``.gas()`` modifier::
 
     namReg.call.gas(1000000)("register", "MyName");
 
-Similarly, the supplied Trx value can be controlled too::
+Similarly, the supplied Xlt value can be controlled too::
 
-    nameReg.call.value(1 trx)("register", "MyName");
+    nameReg.call.value(1 xlt)("register", "MyName");
 
 Lastly, these modifiers can be combined. Their order does not matter::
 
-    nameReg.call.gas(1000000).value(1 trx)("register", "MyName");
+    nameReg.call.gas(1000000).value(1 xlt)("register", "MyName");
 
 .. note::
     It is not yet possible to use the gas or value modifiers on overloaded functions.

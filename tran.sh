@@ -5,7 +5,7 @@
 
 set -x
 
-REMIX_PATH=~/workspace/tron_remix/remix-ide
+REMIX_PATH=~/workspace/litetokens_remix/remix-ide
 
 #### 2. Copy soljson.js to remix-ide
 

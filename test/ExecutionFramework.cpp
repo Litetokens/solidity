@@ -78,7 +78,7 @@ std::pair<bool, string> ExecutionFramework::compareAndCreateMessage(
 		message +=
 			(result == expected ? "   " : " X ") +
 			result +
-			std::string(0x41 - result.size(), ' ') +
+			std::string(0x30 - result.size(), ' ') +
 			expected +
 			"\n";
 	}

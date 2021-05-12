@@ -2,12 +2,12 @@
 Units and Globally Available Variables
 **************************************
 
-.. index:: sun, trx
+.. index:: sun, xlt
 
-Trx Units
+Xlt Units
 ===========
 
-A literal number can take a suffix of ``sun`` or ``trx`` to convert between the subdenominations of Trx, where Trx currency numbers without a postfix are assumed to be sun, e.g. ``2 trx == 2000000 sun`` evaluates to ``true``.
+A literal number can take a suffix of ``sun`` or ``xlt`` to convert between the subdenominations of Xlt, where Xlt currency numbers without a postfix are assumed to be sun, e.g. ``2 xlt == 2000000 sun`` evaluates to ``true``.
 
 .. index:: time, seconds, minutes, hours, days, weeks, years
 
@@ -193,7 +193,7 @@ For more information, see the section on :ref:`address`.
 .. warning::
     There are some dangers in using ``send``: The transfer fails if the call stack depth is at 1024
     (this can always be forced by the caller) and it also fails if the recipient runs out of gas. So in order
-    to make safe Trx transfers, always check the return value of ``send``, use ``transfer`` or even better:
+    to make safe Xlt transfers, always check the return value of ``send``, use ``transfer`` or even better:
     Use a pattern where the recipient withdraws the money.
 
 .. note::
@@ -201,8 +201,8 @@ For more information, see the section on :ref:`address`.
    must align in order for the called contract to correctly access the storage variables of the calling contract by name.
    This is of course not the case if storage pointers are passed as function arguments as in the case for
    the high-level libraries.
-   
-    
+
+
 .. note::
     The use of ``callcode`` is discouraged and will be removed in the future.
 

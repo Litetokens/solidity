@@ -2515,7 +2515,7 @@ BOOST_AUTO_TEST_CASE(contracts_as_addresses)
 {
 	char const* sourceCode = R"(
 		contract helper {
-			function() payable { } // can receive trx
+			function() payable { } // can receive xlt
 		}
 		contract test {
 			helper h;
@@ -6095,7 +6095,7 @@ BOOST_AUTO_TEST_CASE(failing_send)
 
 BOOST_AUTO_TEST_CASE(send_zero_ether)
 {
-	// Sending zero trx to a contract should still invoke the fallback function
+	// Sending zero xlt to a contract should still invoke the fallback function
 	// (it previously did not because the gas stipend was not provided by the EVM)
 	char const* sourceCode = R"(
 		contract Receiver {
@@ -8259,15 +8259,15 @@ BOOST_AUTO_TEST_CASE(inline_array_return)
 {
 	char const* sourceCode = R"(
 		contract C {
-			uint8[] tester; 
+			uint8[] tester;
 			function f() returns (uint8[5]) {
 				return ([1,2,3,4,5]);
 			}
 			function test() returns (uint8, uint8, uint8, uint8, uint8) {
-				tester = f(); 
+				tester = f();
 				return (tester[0], tester[1], tester[2], tester[3], tester[4]);
 			}
-			
+
 		}
 	)";
 	compileAndRun(sourceCode, 0, "C");
@@ -8291,13 +8291,13 @@ BOOST_AUTO_TEST_CASE(inline_array_singleton)
 BOOST_AUTO_TEST_CASE(inline_long_string_return)
 {
 		char const* sourceCode = R"(
-		contract C { 
+		contract C {
 			function f() returns (string) {
 				return (["somethingShort", "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789001234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789001234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"][1]);
 			}
 		}
 	)";
-	
+
 	string strLong = "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789001234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678900123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789001234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
 	compileAndRun(sourceCode, 0, "C");
 	ABI_CHECK(callContractFunction("f()"), encodeDyn(strLong));
@@ -9332,7 +9332,7 @@ BOOST_AUTO_TEST_CASE(no_nonpayable_circumvention_by_modifier)
 	char const* sourceCode = R"(
 		contract C {
 			modifier tryCircumvent {
-				if (false) _; // avoid the function, we should still not accept trx
+				if (false) _; // avoid the function, we should still not accept xlt
 			}
 			function f() tryCircumvent returns (uint) {
 				return msg.value;
