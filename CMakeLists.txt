@@ -57,3 +57,14 @@ endif()
 if (TESTS AND NOT EMSCRIPTEN)
 	add_subdirectory(test)
 endif()
+
+# Kedia Add Boost Options
+if (WIN32)
+    # set(BOOST_ROOT C:/Program Files/boost_1_60_0/)
+    # set(Boost_USE_STATIC_LIBS OFF)
+    #set(Boost_USE_MULTITHREADED ON)
+    #set(Boost_USE_STATIC_RUNTIME OFF)
+
+    include_directories(${BOOST_ROOT})
+    link_directories(${BOOST_ROOT}/stage/lib) # add this before add_executable()
+endif()
